@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive_flexbox_layout</title>
+  
+  <style>
+    /* universal selector */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    /* font and border margin */
+    body {
+      font-size: 1em;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px 40px 40px 40px
+    }
+
+    /* / / / / / flexbox top (parent div) */
+    .hero-top {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 440px;
+      background-color: #ccc;
+      padding: 60px;
+      margin: 20px
+    }
+   
+    /* flexbox top (child div) */
+    .hero-content {
+      text-align: left
+    }
+
+    /* / / / / / buttons */
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 25px
+    }
+    
+    /* bottom-section class only */
+    .button-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start
+     }
+
+    /* / / / / / middle section */
+    .middle-section {
+      text-align: center !important;
+      padding: 40px 20px
+    }
+    
+    /* / / / / / bottom section */
+    .bottom-section {
+      text-align: center;
+      padding: 40px 20px
+    }
+    
+    .bottom-section p {
+      text-align: left
+    }
+
+    /* / / / / / flexbox 3 column and 2 column layouts */
+    
+    /* parent divs */
+    .three-columns, .two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+      margin-top: 20px
+    }
+
+    /* child divs */
+    .column {
+      flex: 1;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    /* child of child divs */
+    .column-content {
+      width: 100%;
+      height: 220px;
+      background-color: #ccc;
+      margin-bottom: 10px
+    }
+    
+     /* narrower height for bottom-section class content only */
+     .two-columns .column-content {
+        max-height: 150px
+     }
+
+    /* / / / / / responsive breakpoints */
+    
+    /* max width for tablets (portrait), phones */
+    @media (max-width: 768px) {
+      
+      /* hero-top tweaks */
+      .hero-top {
+        padding: 20px;
+        margin: 20px;
+        font-size: 0.9em;
+        height: 300px
+      }
+      
+      /* collapse from row to column */
+      .three-columns {
+        flex-direction: column
+      }
+
+      /* collapse from row to column */
+      .two-columns {
+        flex-direction: column
+      }
+      
+     /* narrower height for bottom-section class content only */
+     .two-columns .column-content {
+        max-height: 120px
+     }
+    }
+
+    /* max width for tablet (landscape) */
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      
+      /* tweak to make hero-top more square for mobile */
+      .hero-top {
+        height: 300px
+      }
+    }
+    
+    /* narrow subtitle for hero-top and middle-section classes for tablet (portrait) and above */
+    @media (min-width: 768px) {
+      .hero-top p {
+        text-align: left;
+        max-width: 50%
+      }
+      
+      .middle-section p {
+        text-align: center;
+        max-width: 100%;
+        padding: 0px 30% 0px 30% !important
+      }
+    }
+  </style>
+  
+</head>
+<body>
+
+    <!-- / / / / / top -->
+    <div class="hero-top">
+        <div class="hero-content">
+            <!-- text -->
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <!-- button -->
+            <button>Lorem Ipsum</button>
+        </div>
+    </div>
+
+    <!-- / / / / / middle -->
+    <section class="middle-section">
+        <!-- text -->
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <!-- boxes -->
+        <div class="three-columns">
+            <!-- box 1 -->
+            <div class="column">
+                <div class="column-content"></div>
+                <!-- button -->
+                <button>Lorem Ipsum</button>
+            </div>
+            <!-- box 2 -->
+            <div class="column">
+                <div class="column-content"></div>
+                <!-- button -->
+                <button>Lorem Ipsum</button>
+            </div>
+            <!-- box 3 -->
+            <div class="column">
+                <div class="column-content"></div>
+                <!-- button -->
+                <button>Lorem Ipsum</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- / / / / / bottom -->
+    <section class="bottom-section">
+        <!-- text -->
+        <h2>Lorem Ipsum</h2>
+        <!-- boxes -->
+        <div class="two-columns">
+            <!-- box 1 -->
+            <div class="column">
+                <div class="column-content"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <!-- button -->
+                <div class="button-container">
+                  <button>Lorem Ipsum</button>
+                </div>
+            </div>
+            <!-- box 2 -->
+            <div class="column">
+                <div class="column-content"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <!-- button -->
+                <div class="button-container">
+                  <button>Lorem Ipsum</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
